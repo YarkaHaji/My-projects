@@ -55,5 +55,150 @@
                 "Congratulations! Your website is working!";
         }
     </script>
+</body> 
+    
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website - Login</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #101d3a, #176b87);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-box {
+      background: white;
+      width: 100%;
+      max-width: 360px;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 35px #0004;
+    }
+
+    h2 {
+      text-align: center;
+      color: #17345c;
+    }
+
+    p {
+      text-align: center;
+      color: #666;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      margin-top: 12px;
+      background: #176b87;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #104e65;
+    }
+
+    #message {
+      color: #d62828;
+      font-size: 14px;
+    }
+
+    #dashboard {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-box" id="loginBox">
+    <h2>Welcome Back</h2>
+    <p>Geli xogtaada si aad u gasho</p>
+
+    <form id="loginForm">
+      <input
+        type="text"
+        id="username"
+        placeholder="Username"
+        required
+      >
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        required
+      >
+
+      <button type="submit">Login</button>
+      <p id="message" role="alert"></p>
+    </form>
+  </div>
+
+  <div class="login-box" id="dashboard">
+    <h2>Login Successful!</h2>
+    <p>Ku soo dhowow website-kaaga.</p>
+    <button id="logoutButton">Logout</button>
+  </div>
+
+  <script>
+    const correctPassword = "3149";
+
+    document.getElementById("loginForm")
+      .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const password =
+          document.getElementById("password").value;
+
+        const message =
+          document.getElementById("message");
+
+        if (password === correctPassword) {
+          document.getElementById("loginBox").style.display = "none";
+          document.getElementById("dashboard").style.display = "block";
+        } else {
+          message.textContent =
+            "Password waa khalad. Mar kale isku day.";
+        }
+      });
+
+    document.getElementById("logoutButton")
+      .addEventListener("click", function() {
+        document.getElementById("dashboard").style.display = "none";
+        document.getElementById("loginBox").style.display = "block";
+        document.getElementById("loginForm").reset();
+        document.getElementById("message").textContent = "";
+      });
+  </script>
+
 </body>
+</html>
+
 </html>
